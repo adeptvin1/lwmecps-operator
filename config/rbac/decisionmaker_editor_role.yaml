@@ -1,8 +1,11 @@
----
+# permissions for end users to edit decisionmakers.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: manager-role
+  labels:
+    app.kubernetes.io/name: kubernetes-operator-for-lwmecps
+    app.kubernetes.io/managed-by: kustomize
+  name: decisionmaker-editor-role
 rules:
 - apiGroups:
   - mecdms.apps.lwmecps.com
@@ -19,14 +22,6 @@ rules:
 - apiGroups:
   - mecdms.apps.lwmecps.com
   resources:
-  - decisionmakers/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - mecdms.apps.lwmecps.com
-  resources:
   - decisionmakers/status
   verbs:
   - get
-  - patch
-  - update

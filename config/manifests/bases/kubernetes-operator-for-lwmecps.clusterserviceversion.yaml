@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  name: kubernetes-operator-for-lwmecps.v0.0.1
+spec:
+  displayName: kubernetes-operator-for-lwmecps
+  description: "Operator for DecisionMaker systems and tests it"
+  version: 0.0.1
+  required:
+    - kind: "CustomResourceDefinition"
+      name: "chaosengines.litmuschaos.io"
+    - kind: "CustomResourceDefinition"
+      name: "chaosexperiments.litmuschaos.io"
+    - kind: "CustomResourceDefinition"
+      name: "chaosschedules.litmuschaos.io"

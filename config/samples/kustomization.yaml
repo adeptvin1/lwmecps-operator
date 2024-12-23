@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- mecdms_v1alpha1_decisionmaker.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples
