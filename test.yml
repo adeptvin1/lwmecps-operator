@@ -1,0 +1,6 @@
+apiVersion: mecdms.apps.lwmecps.com/v1alpha1
+kind: DecisionMaker
+metadata:
+  name: example-decisionmaker
+spec:
+  replicas: 4

@@ -32,7 +32,7 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	mecdmsv1alpha1 "github.com/adeptvin1/kubernetes-operator-for-LWMECPS/api/v1alpha1"
+	mecdmsv1alpha1 "github.com/adeptvin1/lwmecps-operator/api/v1alpha1"
 	// +kubebuilder:scaffold:imports
 )
 

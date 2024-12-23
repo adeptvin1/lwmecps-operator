@@ -24,10 +24,10 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/adeptvin1/kubernetes-operator-for-LWMECPS/test/utils"
+	"github.com/adeptvin1/lwmecps-operator/test/utils"
 )
 
-const namespace = "kubernetes-operator-for-lwmecps-system"
+const namespace = "lwmecps-operator"
 
 var _ = Describe("controller", Ordered, func() {
 	BeforeAll(func() {
@@ -60,7 +60,7 @@ var _ = Describe("controller", Ordered, func() {
 			var err error
 
 			// projectimage stores the name of the image used in the example
-			var projectimage = "github.com/adeptvin1/kubernetes-operator-for-LWMECPS/kubernetes-operator-for-lwmecps:v0.0.1"
+			var projectimage = "example.com/lwmecps-operator:v0.0.1"
 
 			By("building the manager(Operator) image")
 			cmd := exec.Command("make", "docker-build", fmt.Sprintf("IMG=%s", projectimage))

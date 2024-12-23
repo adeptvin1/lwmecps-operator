@@ -35,8 +35,8 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	mecdmsv1alpha1 "github.com/adeptvin1/kubernetes-operator-for-LWMECPS/api/v1alpha1"
-	"github.com/adeptvin1/kubernetes-operator-for-LWMECPS/internal/controller"
+	mecdmsv1alpha1 "github.com/adeptvin1/lwmecps-operator/api/v1alpha1"
+	"github.com/adeptvin1/lwmecps-operator/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -126,7 +126,7 @@ func main() {
 		WebhookServer:          webhookServer,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "a93bdf95.apps.lwmecps.com",
+		LeaderElectionID:       "8941811c.apps.lwmecps.com",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly
@@ -144,16 +144,6 @@ func main() {
 		os.Exit(1)
 	}
 
-
-	// Регистрация контроллера для установки Litmus Chaos Operator
-	if err = (&controller.LitmusInstallReconciler{
-		Client: mgr.GetClient(),
-		Log:    mgr.GetLogger(),
-	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create LitmusInstallReconciler controller")
-		os.Exit(1)
-	}
-	
 	if err = (&controller.DecisionMakerReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),

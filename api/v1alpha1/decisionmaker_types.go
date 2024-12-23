@@ -28,8 +28,7 @@ type DecisionMakerSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of DecisionMaker. Edit decisionmaker_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Replicas *int32 `json:"replicas,omitempty"`
 }
 
 // DecisionMakerStatus defines the observed state of DecisionMaker

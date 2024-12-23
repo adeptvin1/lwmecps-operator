@@ -28,8 +28,8 @@ BUNDLE_METADATA_OPTS ?= $(BUNDLE_CHANNELS) $(BUNDLE_DEFAULT_CHANNEL)
 # This variable is used to construct full image tags for bundle and catalog images.
 #
 # For example, running 'make bundle-build bundle-push catalog-build catalog-push' will build and push both
-# apps.lwmecps.com/kubernetes-operator-for-lwmecps-bundle:$VERSION and apps.lwmecps.com/kubernetes-operator-for-lwmecps-catalog:$VERSION.
-IMAGE_TAG_BASE ?= apps.lwmecps.com/kubernetes-operator-for-lwmecps
+# apps.lwmecps.com/lwmecps-operator-bundle:$VERSION and apps.lwmecps.com/lwmecps-operator-catalog:$VERSION.
+IMAGE_TAG_BASE ?= apps.lwmecps.com/lwmecps-operator
 
 # BUNDLE_IMG defines the image:tag used for the bundle.
 # You can use it as an arg. (E.g make bundle-build BUNDLE_IMG=<some-registry>/<project-name-bundle>:<tag>)
@@ -159,10 +159,10 @@ PLATFORMS ?= linux/arm64,linux/amd64,linux/s390x,linux/ppc64le
 docker-buildx: ## Build and push docker image for the manager for cross-platform support
 	# copy existing Dockerfile and insert --platform=${BUILDPLATFORM} into Dockerfile.cross, and preserve the original Dockerfile
 	sed -e '1 s/\(^FROM\)/FROM --platform=\$$\{BUILDPLATFORM\}/; t' -e ' 1,// s//FROM --platform=\$$\{BUILDPLATFORM\}/' Dockerfile > Dockerfile.cross
-	- $(CONTAINER_TOOL) buildx create --name kubernetes-operator-for-lwmecps-builder
-	$(CONTAINER_TOOL) buildx use kubernetes-operator-for-lwmecps-builder
+	- $(CONTAINER_TOOL) buildx create --name lwmecps-operator-builder
+	$(CONTAINER_TOOL) buildx use lwmecps-operator-builder
 	- $(CONTAINER_TOOL) buildx build --push --platform=$(PLATFORMS) --tag ${IMG} -f Dockerfile.cross .
-	- $(CONTAINER_TOOL) buildx rm kubernetes-operator-for-lwmecps-builder
+	- $(CONTAINER_TOOL) buildx rm lwmecps-operator-builder
 	rm Dockerfile.cross
 
 .PHONY: build-installer
@@ -299,11 +299,11 @@ OPM = $(shell which opm)
 endif
 endif
 
-# A comma-separated list of bundle images (e.g. make catalog-build BUNDLE_IMGS=github.com/adeptvin1/kubernetes-operator-for-LWMECPS/operator-bundle:v0.1.0,github.com/adeptvin1/kubernetes-operator-for-LWMECPS/operator-bundle:v0.2.0).
+# A comma-separated list of bundle images (e.g. make catalog-build BUNDLE_IMGS=example.com/operator-bundle:v0.1.0,example.com/operator-bundle:v0.2.0).
 # These images MUST exist in a registry and be pull-able.
 BUNDLE_IMGS ?= $(BUNDLE_IMG)
 
-# The image tag given to the resulting catalog image (e.g. make catalog-build CATALOG_IMG=github.com/adeptvin1/kubernetes-operator-for-LWMECPS/operator-catalog:v0.2.0).
+# The image tag given to the resulting catalog image (e.g. make catalog-build CATALOG_IMG=example.com/operator-catalog:v0.2.0).
 CATALOG_IMG ?= $(IMAGE_TAG_BASE)-catalog:v$(VERSION)
 
 # Set CATALOG_BASE_IMG to an existing catalog image tag to add $BUNDLE_IMGS to that image.

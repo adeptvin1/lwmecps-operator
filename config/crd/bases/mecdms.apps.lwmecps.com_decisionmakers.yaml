@@ -39,10 +39,9 @@ spec:
           spec:
             description: DecisionMakerSpec defines the desired state of DecisionMaker
             properties:
-              foo:
-                description: Foo is an example field of DecisionMaker. Edit decisionmaker_types.go
-                  to remove/update
-                type: string
+              replicas:
+                format: int32
+                type: integer
             type: object
           status:
             description: DecisionMakerStatus defines the observed state of DecisionMaker
