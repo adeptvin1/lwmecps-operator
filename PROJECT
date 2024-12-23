@@ -9,5 +9,5 @@ plugins:
   manifests.sdk.operatorframework.io/v2: {}
   scorecard.sdk.operatorframework.io/v2: {}
 projectName: kubernetes-operator-for-lwmecps
-repo: example.com/m/v4
+repo: github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4
 version: "3"

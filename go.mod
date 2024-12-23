@@ -1,4 +1,4 @@
-module example.com/m/v4
+module github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4
 
 go 1.22.0
 
