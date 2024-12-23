@@ -24,7 +24,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4/test/utils"
+	"github.com/adeptvin1/kubernetes-operator-for-LWMECPS/test/utils"
 )
 
 const namespace = "kubernetes-operator-for-lwmecps-system"

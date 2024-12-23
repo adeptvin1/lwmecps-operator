@@ -27,7 +27,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	mecdmsv1alpha1 "github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4/api/v1alpha1"
+	mecdmsv1alpha1 "github.com/adeptvin1/kubernetes-operator-for-LWMECPS/api/v1alpha1"
 )
 
 var _ = Describe("DecisionMaker Controller", func() {

@@ -9,7 +9,7 @@ plugins:
   manifests.sdk.operatorframework.io/v2: {}
   scorecard.sdk.operatorframework.io/v2: {}
 projectName: kubernetes-operator-for-lwmecps
-repo: github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4
+repo: github.com/adeptvin1/kubernetes-operator-for-LWMECPS
 resources:
 - api:
     crdVersion: v1
@@ -18,6 +18,6 @@ resources:
   domain: apps.lwmecps.com
   group: mecdms
   kind: DecisionMaker
-  path: github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4/api/v1alpha1
+  path: github.com/adeptvin1/kubernetes-operator-for-LWMECPS/api/v1alpha1
   version: v1alpha1
 version: "3"

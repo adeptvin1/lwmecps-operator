@@ -35,8 +35,8 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	mecdmsv1alpha1 "github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4/api/v1alpha1"
-	"github.com/adeptvin1/kubernetes-operator-for-LWMECPS/m/v4/internal/controller"
+	mecdmsv1alpha1 "github.com/adeptvin1/kubernetes-operator-for-LWMECPS/api/v1alpha1"
+	"github.com/adeptvin1/kubernetes-operator-for-LWMECPS/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 
