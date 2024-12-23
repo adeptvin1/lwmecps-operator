@@ -8,7 +8,6 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"k8s.io/apimachinery/pkg/runtime"
-	"k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	"github.com/adeptvin1/kubernetes-operator-for-LWMECPS/api/v1alpha1" // Замените на правильный путь
 )
