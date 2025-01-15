@@ -66,6 +66,20 @@ make uninstall
 make undeploy
 ```
 
+
+## OLM bundle dev
+
+```sh
+operator-sdk olm install
+```
+
+
+```sh
+make bundle-build bundle-push BUNDLE_IMG=adeptvin4/lwmecps-bundle:v0.0.1
+
+operator-sdk run bundle docker.io/adeptvin4/lwmecps-bundle:v0.0.1
+```
+
 ## Project Distribution
 
 Following are the steps to build the installer and distribute this project to users.

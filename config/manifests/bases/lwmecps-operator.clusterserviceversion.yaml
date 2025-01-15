@@ -1,0 +1,47 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+  name: lwmecps-operator.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: DecisionMaker is the Schema for the decisionmakers API
+      displayName: Decision Maker
+      kind: DecisionMaker
+      name: decisionmakers.mecdms.apps.lwmecps.com
+      version: v1alpha1
+  description: lwmecps-operator description
+  displayName: lwmecps-operator
+  icon:
+  - base64data: ""
+    mediatype: ""
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - operator
+  links:
+  - name: Lwmecps Operator
+    url: https://lwmecps-operator.domain
+  maintainers:
+  - email: adeptvin1@gmail.com
+    name: IvanFilianin
+  maturity: alpha
+  provider:
+    name: lwmecps-prov
+  version: 0.0.0
